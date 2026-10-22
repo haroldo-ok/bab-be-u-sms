@@ -1,0 +1,131 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 2 w2
+expect nclass == 11 w1
+expect nunits == 58 w2
+expect u_x+17 == 7 w1
+expect u_y+17 == 15 w1
+screenshot shots/mapnav_start.ppm
+hold down
+waituntil turn_no == 1 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 7 w1
+expect u_y+17 == 15 w1
+hold right
+waituntil turn_no == 2 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 8 w1
+expect u_y+17 == 15 w1
+hold right
+waituntil turn_no == 3 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 15 w1
+hold up
+waituntil turn_no == 4 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 14 w1
+hold up
+waituntil turn_no == 5 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 13 w1
+hold right
+waituntil turn_no == 6 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 10 w1
+expect u_y+17 == 13 w1
+screenshot shots/mapnav_prison.ppm
+hold left
+waituntil turn_no == 7 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 13 w1
+hold down
+waituntil turn_no == 8 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 14 w1
+hold down
+waituntil turn_no == 9 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 15 w1
+hold left
+waituntil turn_no == 10 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 8 w1
+expect u_y+17 == 15 w1
+hold left
+waituntil turn_no == 11 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 7 w1
+expect u_y+17 == 15 w1
+screenshot shots/mapnav_back.ppm
+hold right
+waituntil turn_no == 12 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 8 w1
+expect u_y+17 == 15 w1
+hold right
+waituntil turn_no == 13 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 15 w1
+hold up
+waituntil turn_no == 14 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 14 w1
+hold up
+waituntil turn_no == 15 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 9 w1
+expect u_y+17 == 13 w1
+hold right
+waituntil turn_no == 16 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+expect u_x+17 == 10 w1
+expect u_y+17 == 13 w1
+tap 2
+run 500
+expect cur_level == 65 w2
+screenshot shots/mapnav_entered.ppm
+expectpace 0
+spmin

@@ -1,0 +1,4 @@
+symbols babbeu.noi
+waituntil dbg_stage >= 5 5000 w1
+print dbg_stage w1
+screenshot shots/title.ppm

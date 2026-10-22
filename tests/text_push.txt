@@ -1,0 +1,42 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap right
+run 150
+tap down
+run 150
+tap down
+run 150
+tap down
+run 150
+tap down
+run 150
+screenshot shots/select_overruled.ppm
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 117 w2
+expect nclass == 6 w1
+expect nunits == 18 w2
+screenshot shots/overruled_start.ppm
+hold right
+run 40
+hold none
+run 240
+screenshot shots/overruled_pushed.ppm
+print cur_level w2

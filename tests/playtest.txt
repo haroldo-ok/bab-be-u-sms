@@ -1,0 +1,29 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+expectvdp display 1
+expectcolors 4
+expect nclass == 7 w1
+expect nunits == 20 w2
+screenshot shots/title.ppm
+tap 2
+run 30
+expectvdp display 1
+expectcolors 3
+screenshot shots/select.ppm
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expectvdp display 1
+expectcolors 4
+print nclass w1
+print nunits w2
+print cur_level w2
+screenshot shots/level.ppm
+hold right
+run 45
+hold none
+run 30
+screenshot shots/moved.ppm
+tap 1
+run 60
+screenshot shots/undo.ppm

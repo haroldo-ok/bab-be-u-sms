@@ -1,0 +1,4 @@
+symbols babbeu.noi
+run 120
+print dbg_stage w1
+print nclass w1

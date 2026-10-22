@@ -1,0 +1,38 @@
+# VBlank-interrupt audio regression.
+#
+# Verifies that a frame-interrupt handler is registered, then starts
+# logging after a level-0 turn has begun (turn_no increments at the
+# start of do_turn).  audio_frame entries and PSG writes recorded
+# before board_dirty returns to 0 therefore happened from the VBlank
+# interrupt while the main thread was still finishing that one turn
+# and redraw, not from a main-loop call.
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+expect SMS_theFrameInterruptHandler != 0 w2
+print SMS_theFrameInterruptHandler w2
+tap 2
+run 180
+tap up
+run 180
+tap up
+run 180
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 0 w2
+run 30
+frames
+hold right
+waituntil turn_no == 1 5000 w2
+frames
+hooklog audio_frame perf/vbl_audio.hook
+psglog perf/vbl_audio.psg
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+frames
+hookstop
+psgstop
+expect turn_no == 1 w2
+expectpace 0
+spmin

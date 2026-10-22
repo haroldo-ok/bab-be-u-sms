@@ -1,0 +1,22 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap up
+run 180
+tap up
+run 180
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 0 w2
+run 30
+frames
+cgstart
+run 300
+cgstop
+cgdump perf/cg_idle300.dump
+frames
+expect turn_no == 0 w2
+expectpace 0
+spmin

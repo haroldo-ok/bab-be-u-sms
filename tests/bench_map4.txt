@@ -1,0 +1,37 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 2 w2
+run 30
+frames
+cgstart
+hold right
+waituntil turn_no == 1 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+hold left
+waituntil turn_no == 2 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+hold right
+waituntil turn_no == 3 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+hold left
+waituntil turn_no == 4 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+cgstop
+cgdump perf/cg_map4.dump
+frames
+expect turn_no == 4 w2
+expect u_x+17 == 7 w1
+expect u_y+17 == 15 w1
+expectpace 0
+spmin

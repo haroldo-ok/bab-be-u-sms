@@ -1,0 +1,40 @@
+# Diagonal D-pad movement regression.
+#
+# Level 0's BAB (unit 10) starts at (6,7).  Each input below holds
+# two adjacent D-pad contacts, so a correct 8-way turn changes both
+# coordinates; the old cardinal-snapping input changed only one.
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap up
+run 180
+tap up
+run 180
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 0 w2
+run 30
+expect turn_no == 0 w2
+expect u_x+10 == 6 w1
+expect u_y+10 == 7 w1
+hold down+right
+waituntil turn_no == 1 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+run 30
+expect u_x+10 == 7 w1
+expect u_y+10 == 8 w1
+hold up+left
+waituntil turn_no == 2 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+run 30
+expect u_x+10 == 6 w1
+expect u_y+10 == 7 w1
+screenshot shots/diagonal.ppm
+expectpace 0
+spmin

@@ -1,0 +1,27 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap up
+run 180
+tap up
+run 180
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 0 w2
+run 30
+frames
+cgstart
+hold right
+waituntil turn_no == 4 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+cgstop
+cgdump perf/cg_first4.dump
+frames
+expect turn_no == 4 w2
+screenshot shots/bench_first4.ppm
+expectpace 0
+spmin

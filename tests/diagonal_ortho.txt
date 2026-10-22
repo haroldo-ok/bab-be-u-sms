@@ -1,0 +1,54 @@
+# DIAG/ORTHO movement-gate regression on level 102 (baba is you).
+#
+# BAB starts with both U and ORTHO (unit 13 at (6,7)), so a diagonal
+# D-pad request must not move it, while a cardinal request must.
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap down
+run 120
+tap down
+run 120
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 102 w2
+run 30
+expect any_diagortho == 1 w1
+expect turn_no == 0 w2
+expect u_x+13 == 6 w1
+expect u_y+13 == 7 w1
+hold down+right
+waituntil turn_no == 1 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+run 30
+expect u_x+13 == 6 w1
+expect u_y+13 == 7 w1
+hold right
+waituntil turn_no == 2 5000 w2
+waituntil board_dirty == 1 5000 w1
+waituntil board_dirty == 0 5000 w1
+hold none
+run 30
+expect u_x+13 == 7 w1
+expect u_y+13 == 7 w1
+screenshot shots/diagonal_ortho.ppm
+expectpace 0
+spmin

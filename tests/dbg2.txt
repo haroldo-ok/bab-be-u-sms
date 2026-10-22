@@ -1,0 +1,5 @@
+symbols babbeu.noi
+run 3000
+print dbg_stage w1
+screenshot shots/title.ppm
+expectvdp display 1

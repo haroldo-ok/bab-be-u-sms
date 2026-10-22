@@ -1,0 +1,12 @@
+symbols babbeu.noi
+run 200
+print dbg_stage w1
+run 200
+print dbg_stage w1
+run 200
+print dbg_stage w1
+run 200
+print dbg_stage w1
+run 200
+print dbg_stage w1
+screenshot shots/title.ppm

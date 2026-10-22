@@ -1,0 +1,67 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap right
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+tap down
+run 120
+screenshot shots/select_solo.ppm
+tap 1
+waituntil dbg_stage == 6 6000 w1
+expect cur_level == 347 w2
+expect nclass == 9 w1
+expect nunits == 25 w2
+run 120
+screenshot shots/solo_level.ppm

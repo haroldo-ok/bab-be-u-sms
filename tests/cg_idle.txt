@@ -1,0 +1,17 @@
+symbols babbeu.noi
+run 10
+waituntil dbg_stage == 7 5000 w1
+tap 2
+run 180
+tap up
+run 180
+tap up
+run 180
+tap 1
+waituntil dbg_stage == 6 6000 w1
+run 30
+cgstart
+run 300
+cgstop
+cgdump tests/cg_idle.dump
+screenshot shots/profile_idle.ppm
